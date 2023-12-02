@@ -13,9 +13,9 @@ pub fn day2() {
 
     let mut sum = 0;
     for (game_idx, game) in input.lines().enumerate() {
-        let mut max_red: u32 = 0;
-        let mut max_green: u32 = 0;
-        let mut max_blue: u32 = 0;
+        let mut max_red: u32 = 1;
+        let mut max_green: u32 = 1;
+        let mut max_blue: u32 = 1;
 
         let sets = game.split(':').nth(1).unwrap().split(';');
         for set in sets {
@@ -35,10 +35,15 @@ pub fn day2() {
             }
         }
 
-        if max_red <= 12 && max_green <= 13 && max_blue <= 14 {
-            let game_id = game_idx + 1;
-            sum += game_id;
-        }
+        // part 1:
+        // if max_red <= 12 && max_green <= 13 && max_blue <= 14 {
+        //     let game_id = game_idx + 1;
+        //     sum += game_id;
+        // }
+
+        // part 2
+        let power = max_red * max_green * max_blue;
+        sum += power;
     }
     println!("sum: {}", sum);
 }
